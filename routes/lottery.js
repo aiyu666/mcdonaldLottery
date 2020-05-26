@@ -2,13 +2,15 @@ const express = require('express');
 
 const router = express.Router();
 
-/* GET users listing. */
+/* GET lottery info */
 router.get('/', (req, res) => {
-  res.send('get user info');
+  res.render('index', { title: 'test' });
 });
 
+/* POST a new lottery request */
 router.post('/', (req, res) => {
-  res.send('get user token');
+  res.render('index', { title: 'test' });
 });
+
 
 module.exports = router;
