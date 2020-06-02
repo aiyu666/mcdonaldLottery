@@ -28,7 +28,10 @@ async function getToken(userAccount, userPassword) {
       Platform: platform,
     },
   };
-  const option = { url: 'https://api.mcddaily.com.tw/login_by_mobile', json: parm };
+  const option = {
+    url: 'https://api.mcddaily.com.tw/login_by_mobile',
+    json: parm,
+  };
   const response = await request.postRequest(option);
   return response;
 }
