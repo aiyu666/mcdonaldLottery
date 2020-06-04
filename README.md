@@ -16,7 +16,7 @@ npm run start
 Get token
 ```
 curl --request POST \
-  --url https://mcdonaldlottery.herokuapp.com/users \
+  --url localhost:5000/api/users \
   --header 'content-type: application/json' \
   --data '{
  "account": "<yourAccount>",
@@ -27,7 +27,7 @@ curl --request POST \
 Get Lottery
 ```
 curl --request POST \
-  --url localhost:5000/lottery \
+  --url localhost:5000/api/lottery \
   --header 'content-type: application/json' \
   --data '{
  "accessToken": "<token>"
