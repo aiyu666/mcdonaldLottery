@@ -43,7 +43,10 @@ async function getLotteryStatus(req, res) {
     lotteryList.push(lotteryNotExpire[i].object_info.title);
   }
   await res.status(200);
-  await res.json({ lottery: lotteryList, stickerCount: stickerListResp.body.results.stickers.length });
+  await res.json({
+    lottery: lotteryList,
+    stickerCount: stickerListResp.body.results.stickers.length,
+  });
 }
 
 module.exports = {
