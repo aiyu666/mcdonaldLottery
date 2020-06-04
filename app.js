@@ -18,8 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/users', usersRouter);
-app.use('/lottery', lotteryRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/lottery', lotteryRouter);
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404));
