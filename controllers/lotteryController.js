@@ -45,7 +45,7 @@ async function getLotteryStatus(req, res) {
   await res.status(200);
   await res.json({
     lottery: lotteryList,
-    stickerCount: stickerListResp.body.results.stickers.length,
+    totalStickersAmount: stickerListResp.body.results.stickers.length,
   });
 }
 
