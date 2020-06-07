@@ -1,7 +1,7 @@
 const request = require('request');
 
 /**
- * @param  {object} options the request url, body ,headers
+ * @param  {object} options the object contents request url, body ,headers
  */
 async function getRequest(options) {
   return new Promise((resolve, reject) => {
@@ -13,7 +13,7 @@ async function getRequest(options) {
 }
 
 /**
- * @param  {object} options the request url, body ,headers
+ * @param  {object} options the object contents request url, body ,headers
  */
 async function postRequest(options) {
   return new Promise((resolve, reject) => {

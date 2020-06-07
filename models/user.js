@@ -5,14 +5,14 @@ const request = require('./request');
 
 async function getToken(userAccount, userPassword) {
   const deviceTime = new Date().format('yyyy/mm/dd HH:MM:ss');
-  const appVersion = '2.2.0';
+  const appVersion = process.env.APP_VERSION;
   const callTime = new Date().format('yyyymmddHHMMss');
   const paramString = `${userAccount}${userPassword}`;
-  const modelId = 'MIX 3';
-  const osVersion = '9';
-  const platform = 'Android';
-  const deviceUuid = 'device_uuid';
-  const orderNo = `${deviceUuid}${callTime}`;
+  const modelId = process.env.MODEL_ID;
+  const osVersion = process.env.OS_VERSION;
+  const platform = process.env.PLATFORM;
+  const deviceUuid = process.env.DEVICE_UUID;
+  const orderNo = `${process.env.DEVICE_UUID}${callTime}`;
   const maskMd5 = md5(`Mc${orderNo}${platform}${osVersion}${modelId}${deviceUuid}${deviceTime}${appVersion}${paramString}Donalds`);
   const parm = {
     account: userAccount,
@@ -25,7 +25,7 @@ async function getToken(userAccount, userPassword) {
       device_uuid: deviceUuid,
       model_id: modelId,
       os_version: osVersion,
-      Platform: platform,
+      Platform: process.env.PLATFORM,
     },
   };
   const option = {

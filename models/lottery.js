@@ -2,18 +2,13 @@ const request = require('./request');
 require('dotenv').config();
 
 const deviceTime = new Date().format('yyyy/mm/dd HH:MM:ss');
-const appVersion = '2.2.0';
-const modelId = 'MIX 3';
-const osVersion = '9';
-const platform = 'Android';
-const deviceUuid = 'device_uuid';
 const source = {
-  app_version: appVersion,
+  app_version: process.env.APP_VERSION,
   device_time: deviceTime,
-  device_uuid: deviceUuid,
-  model_id: modelId,
-  os_version: osVersion,
-  Platform: platform,
+  device_uuid: process.env.DEVICE_UUID,
+  model_id: process.env.MODEL_ID,
+  os_version: process.env.OS_VERSION,
+  platform: process.env.PLATFORM,
 };
 
 
