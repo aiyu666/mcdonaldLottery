@@ -23,6 +23,7 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-nullish-coalescing": "^4.19.1",
     "eslint-plugin-import": "^2.20.2",
+    "jest": "^26.0.1",
     "nodemon": "^2.0.4"
   }
 }
