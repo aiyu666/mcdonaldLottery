@@ -36,10 +36,6 @@ async function getToken(userAccount, userPassword) {
   return response;
 }
 
-function getUser() {
-}
-
 module.exports = {
   getToken,
-  getUser,
 };

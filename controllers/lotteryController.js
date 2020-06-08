@@ -10,7 +10,7 @@ async function getLottery(req, res) {
     return;
   }
   await res.status(resp.statusCode);
-  await res.json({ lottery: resp.body.results.coupon.object_info.content });
+  await res.json({ lottery: resp.body.results.coupon.object_info.title });
 }
 
 async function getLotteryList(req, res) {
