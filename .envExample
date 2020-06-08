@@ -1,1 +1,6 @@
-MC_HOST=https://api1.mcddailyapp.com
+MC_HOST = https://api1.mcddailyapp.com
+APP_VERSION = '2.2.0'
+MODEL_ID = 'MIX 3'
+OS_VERSION = '9'
+PLATFORM = 'Android'
+DEVICE_UUID = 'device_uuid'
