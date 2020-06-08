@@ -2,6 +2,7 @@ const lottery = require('../models/lottery');
 
 async function getLottery(req, res) {
   const resp = await lottery.getLottery(req.body.accessToken);
+  await console.log(resp.body);
   if (resp.body.rc !== 1) {
     await res.status(resp.statusCode);
     await res.json({
@@ -11,20 +12,6 @@ async function getLottery(req, res) {
   }
   await res.status(resp.statusCode);
   await res.json({ lottery: resp.body.results.coupon.object_info.title });
-}
-
-async function getLotteryList(req, res) {
-  const getLotteryListResp = await lottery.getLotteryList(req.body.accessToken);
-  if (getLotteryListResp.body.rc !== 1) {
-    await res.status(getLotteryListResp.statusCode);
-    await res.json({
-      errorMessage: getLotteryListResp.body.rm,
-    });
-    return;
-  }
-  const lotteryNotExpire = await getLotteryListResp.body.results.coupons.filter((lotteryTarget) => lotteryTarget.object_info.redeem_end_datetime > new Date().format('yyyy/mm/dd HH:MM:ss'));
-  await res.status(getLotteryListResp.statusCode);
-  await res.json({ lottery: lotteryNotExpire });
 }
 
 async function getLotteryStatus(req, res) {
@@ -51,6 +38,5 @@ async function getLotteryStatus(req, res) {
 
 module.exports = {
   getLottery,
-  getLotteryList,
   getLotteryStatus,
 };
