@@ -2,10 +2,13 @@ const lottery = require('../models/lottery');
 
 async function getLottery(req, res) {
   const nowDate = new Date();
-  nowDate.setDate(nowDate.getDate() + 2);
+  nowDate.setDate(nowDate.getDate() + 2); // The lottery expire at the day after tomorrow.
   const getLotteryResp = await lottery.getLottery(req.body.accessToken);
+  const tthree = await new Date();
   const getLotteryListResp = await lottery.getLotteryList(req.body.accessToken);
+  const ttfour = await new Date();
   const stickerListResp = await lottery.getStickerList(req.body.accessToken);
+  const ttfive = await new Date();
   const lotteryToday = await getLotteryListResp.body.results.coupons.filter(
     (lotteryTarget) => lotteryTarget.object_info.redeem_end_datetime === nowDate.format('yyyy/mm/dd 23:59:59'),
   );
@@ -13,6 +16,12 @@ async function getLottery(req, res) {
     (stickerTarget) => stickerTarget.obtain_datetime > new Date().format('yyyy/mm/dd 00:00:00'),
   );
   const todayGet = (lotteryToday.length !== 0 && stickerToday.length === 0) ? await lotteryToday[0].object_info.title : '歡樂貼QQ';
+  await console.log(`
+Get Lottey : ${(tthree - nowDate) / 1000}
+Get Lottey List : ${(ttfour - tthree) / 1000}
+Get Sticker List : ${(ttfive - ttfour) / 1000}
+Final : ${(new Date() - nowDate) / 1000}
+  `);
   if (getLotteryResp.body.rc !== 1) {
     await res.status(getLotteryResp.statusCode);
     await res.json({
