@@ -21,7 +21,7 @@ async function getLottery(req, res) {
 Get Lottey : ${(tthree - ttone) / 1000}
 Get Lottey List : ${(ttfour - tthree) / 1000}
 Get Sticker List : ${(ttfive - ttfour) / 1000}
-Final : ${(new Date() - nowDate) / 1000}
+Final : ${(new Date() - ttone) / 1000}
   `);
   if (getLotteryResp.body.rc !== 1) {
     await res.status(getLotteryResp.statusCode);
