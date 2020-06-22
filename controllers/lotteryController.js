@@ -2,6 +2,7 @@ const lottery = require('../models/lottery');
 
 async function getLottery(req, res) {
   const nowDate = new Date();
+  const ttone = await new Date();
   nowDate.setDate(nowDate.getDate() + 2); // The lottery expire at the day after tomorrow.
   const getLotteryResp = await lottery.getLottery(req.body.accessToken);
   const tthree = await new Date();
@@ -17,7 +18,7 @@ async function getLottery(req, res) {
   );
   const todayGet = (lotteryToday.length !== 0 && stickerToday.length === 0) ? await lotteryToday[0].object_info.title : '歡樂貼QQ';
   await console.log(`
-Get Lottey : ${(tthree - nowDate) / 1000}
+Get Lottey : ${(tthree - ttone) / 1000}
 Get Lottey List : ${(ttfour - tthree) / 1000}
 Get Sticker List : ${(ttfive - ttfour) / 1000}
 Final : ${(new Date() - nowDate) / 1000}
