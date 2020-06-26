@@ -1,5 +1,6 @@
 const request = require('./request');
 require('dotenv').config();
+require('date.format');
 
 const deviceTime = new Date().format('yyyy/mm/dd HH:MM:ss');
 const source = {
