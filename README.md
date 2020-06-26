@@ -13,7 +13,7 @@ npm run start
 ```
 
 ### Use curl
-Get token
+#### Get token
 ```
 curl --request POST \
   --url localhost:5000/api/users \
@@ -24,12 +24,22 @@ curl --request POST \
 }'
 ```
 
-Get Lottery
+#### Get Lottery
 ```
 curl --request POST \
   --url localhost:5000/api/lottery \
   --header 'content-type: application/json' \
   --data '{
  "accessToken": "<token>"
-}
+}'
+```
+
+#### Get Lottery List
+```
+curl --request GET \
+  --url http://localhost:5000/api/lottery \
+  --header 'content-type: application/json' \
+  --data '{
+ "accessToken": "<token>"
+}'
 ```
