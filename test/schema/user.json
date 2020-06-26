@@ -1,0 +1,165 @@
+{
+    "getUserToekn": {
+        "type": "object",
+        "properties": {
+            "rc": {
+                "type": "string"
+            },
+            "rm": {
+                "type": "string"
+            },
+            "results": {
+                "type": "object",
+                "properties": {
+                    "member_info": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "object",
+                                "properties": {
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "first_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "last_name",
+                                    "first_name"
+                                ]
+                            },
+                            "gender": {
+                                "type": "integer"
+                            },
+                            "birthday": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "city": {
+                                "type": "object",
+                                "properties": {
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "region": {
+                                        "type": "string"
+                                    },
+                                    "zipcode": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "city",
+                                    "region",
+                                    "zipcode"
+                                ]
+                            },
+                            "address": {
+                                "type": "string"
+                            },
+                            "marriage": {
+                                "type": "integer"
+                            },
+                            "has_child": {
+                                "type": "integer"
+                            },
+                            "min_child_birth_year": {
+                                "type": "integer"
+                            },
+                            "news_subscription": {
+                                "type": "integer"
+                            },
+                            "account": {
+                                "type": "string"
+                            },
+                            "member_id": {
+                                "type": "string"
+                            },
+                            "access_token": {
+                                "type": "string"
+                            },
+                            "fb_account": {
+                                "type": "object",
+                                "properties": {
+                                    "connected": {
+                                        "type": "boolean"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "connected",
+                                    "username"
+                                ]
+                            },
+                            "gplus_account": {
+                                "type": "object",
+                                "properties": {
+                                    "connected": {
+                                        "type": "boolean"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "connected",
+                                    "username"
+                                ]
+                            },
+                            "apple_account": {
+                                "type": "object",
+                                "properties": {
+                                    "connected": {
+                                        "type": "boolean"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "connected",
+                                    "username"
+                                ]
+                            },
+                            "type": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "gender",
+                            "birthday",
+                            "email",
+                            "city",
+                            "address",
+                            "marriage",
+                            "has_child",
+                            "min_child_birth_year",
+                            "news_subscription",
+                            "account",
+                            "member_id",
+                            "access_token",
+                            "fb_account",
+                            "gplus_account",
+                            "apple_account",
+                            "type"
+                        ]
+                    }
+                },
+                "required": [
+                    "member_info"
+                ]
+            }
+        },
+        "required": [
+            "rc",
+            "rm",
+            "results"
+        ]
+    }
+}

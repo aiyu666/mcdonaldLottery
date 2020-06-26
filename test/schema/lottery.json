@@ -1,0 +1,499 @@
+{
+    "getLottery": {
+        "type": "object",
+        "properties": {
+            "rc": {
+                "type": "integer"
+            },
+            "rm": {
+                "type": "string"
+            },
+            "results": {
+                "type": "object",
+                "properties": {
+                    "coupon": {
+                        "type": "object",
+                        "properties": {
+                            "coupon_id": {
+                                "type": "integer"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "integer"
+                            },
+                            "object_info": {
+                                "type": "object",
+                                "properties": {
+                                    "object_id": {
+                                        "type": "integer"
+                                    },
+                                    "image": {
+                                        "type": "object",
+                                        "properties": {
+                                            "url": {
+                                                "type": "string"
+                                            },
+                                            "width": {
+                                                "type": "integer"
+                                            },
+                                            "height": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "required": [
+                                            "url",
+                                            "width",
+                                            "height"
+                                        ]
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "content": {
+                                        "type": "string"
+                                    },
+                                    "redeem_end_datetime": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "object_id",
+                                    "image",
+                                    "title",
+                                    "content",
+                                    "redeem_end_datetime"
+                                ]
+                            },
+                            "redeem_datetime": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "coupon_id",
+                            "type",
+                            "status",
+                            "object_info",
+                            "redeem_datetime"
+                        ]
+                    },
+                    "current_datetime": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "coupon",
+                    "current_datetime"
+                ]
+            }
+        },
+        "required": [
+            "rc",
+            "rm",
+            "results"
+        ]
+    },
+    "getLotteryList": {
+        "type": "object",
+        "properties": {
+            "rc": {
+                "type": "integer"
+            },
+            "rm": {
+                "type": "string"
+            },
+            "results": {
+                "type": "object",
+                "properties": {
+                    "coupons": {
+                        "type": "array",
+                        "items": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "coupon_id": {
+                                        "type": "integer"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "object_info": {
+                                        "type": "object",
+                                        "properties": {
+                                            "object_id": {
+                                                "type": "integer"
+                                            },
+                                            "image": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "width": {
+                                                        "type": "integer"
+                                                    },
+                                                    "height": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "url",
+                                                    "width",
+                                                    "height"
+                                                ]
+                                            },
+                                            "title": {
+                                                "type": "string"
+                                            },
+                                            "redeem_end_datetime": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "object_id",
+                                            "image",
+                                            "title",
+                                            "redeem_end_datetime"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "coupon_id",
+                                    "type",
+                                    "status",
+                                    "object_info"
+                                ]
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "coupon_id": {
+                                        "type": "integer"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "object_info": {
+                                        "type": "object",
+                                        "properties": {
+                                            "object_id": {
+                                                "type": "integer"
+                                            },
+                                            "image": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "width": {
+                                                        "type": "integer"
+                                                    },
+                                                    "height": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "url",
+                                                    "width",
+                                                    "height"
+                                                ]
+                                            },
+                                            "title": {
+                                                "type": "string"
+                                            },
+                                            "redeem_end_datetime": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "object_id",
+                                            "image",
+                                            "title",
+                                            "redeem_end_datetime"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "coupon_id",
+                                    "type",
+                                    "status",
+                                    "object_info"
+                                ]
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "coupon_id": {
+                                        "type": "integer"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "object_info": {
+                                        "type": "object",
+                                        "properties": {
+                                            "object_id": {
+                                                "type": "integer"
+                                            },
+                                            "image": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "width": {
+                                                        "type": "integer"
+                                                    },
+                                                    "height": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "url",
+                                                    "width",
+                                                    "height"
+                                                ]
+                                            },
+                                            "title": {
+                                                "type": "string"
+                                            },
+                                            "redeem_end_datetime": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "object_id",
+                                            "image",
+                                            "title",
+                                            "redeem_end_datetime"
+                                        ]
+                                    },
+                                    "redeem_datetime": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "coupon_id",
+                                    "type",
+                                    "status",
+                                    "object_info",
+                                    "redeem_datetime"
+                                ]
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "coupon_id": {
+                                        "type": "integer"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "object_info": {
+                                        "type": "object",
+                                        "properties": {
+                                            "object_id": {
+                                                "type": "integer"
+                                            },
+                                            "image": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "width": {
+                                                        "type": "integer"
+                                                    },
+                                                    "height": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "url",
+                                                    "width",
+                                                    "height"
+                                                ]
+                                            },
+                                            "title": {
+                                                "type": "string"
+                                            },
+                                            "redeem_end_datetime": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "object_id",
+                                            "image",
+                                            "title",
+                                            "redeem_end_datetime"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "coupon_id",
+                                    "type",
+                                    "status",
+                                    "object_info"
+                                ]
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "coupon_id": {
+                                        "type": "integer"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "object_info": {
+                                        "type": "object",
+                                        "properties": {
+                                            "object_id": {
+                                                "type": "integer"
+                                            },
+                                            "image": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "width": {
+                                                        "type": "integer"
+                                                    },
+                                                    "height": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "url",
+                                                    "width",
+                                                    "height"
+                                                ]
+                                            },
+                                            "title": {
+                                                "type": "string"
+                                            },
+                                            "redeem_end_datetime": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "object_id",
+                                            "image",
+                                            "title",
+                                            "redeem_end_datetime"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "coupon_id",
+                                    "type",
+                                    "status",
+                                    "object_info"
+                                ]
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "coupon_id": {
+                                        "type": "integer"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "object_info": {
+                                        "type": "object",
+                                        "properties": {
+                                            "object_id": {
+                                                "type": "integer"
+                                            },
+                                            "image": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "width": {
+                                                        "type": "integer"
+                                                    },
+                                                    "height": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "url",
+                                                    "width",
+                                                    "height"
+                                                ]
+                                            },
+                                            "title": {
+                                                "type": "string"
+                                            },
+                                            "redeem_end_datetime": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "object_id",
+                                            "image",
+                                            "title",
+                                            "redeem_end_datetime"
+                                        ]
+                                    },
+                                    "redeem_datetime": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "coupon_id",
+                                    "type",
+                                    "status",
+                                    "object_info",
+                                    "redeem_datetime"
+                                ]
+                            }
+                        ]
+                    },
+                    "current_datetime": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "coupons",
+                    "current_datetime"
+                ]
+            }
+        },
+        "required": [
+            "rc",
+            "rm",
+            "results"
+        ]
+    },
+    "getStickerList": {
+        "rc": 1,
+        "rm": "成功",
+        "results": {
+            "stickers": []
+        }
+    }
+}
