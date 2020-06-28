@@ -1,4 +1,4 @@
-require('x-date');
+require('date.format');
 const md5 = require('md5');
 const request = require('./request');
 

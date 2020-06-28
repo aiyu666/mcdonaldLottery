@@ -17,8 +17,7 @@
     "md5": "^2.2.1",
     "morgan": "~1.9.1",
     "pug": "^2.0.4",
-    "request": "^2.88.2",
-    "x-date": "^1.0.2"
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "ajv": "^6.12.2",
