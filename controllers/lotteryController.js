@@ -5,6 +5,7 @@ async function getLottery(req, res) {
   nowDate.setDate(nowDate.getDate() + 2); // The lottery expire at the day after tomorrow.
   const getLotteryResp = await lottery.getLottery(req.body.accessToken);
   const getLotteryListResp = await lottery.getLotteryList(req.body.accessToken);
+  console.log(getLotteryListResp.body);
   const stickerListResp = await lottery.getStickerList(req.body.accessToken);
   const lotteryToday = await getLotteryListResp.body.results.coupons.filter(
     (lotteryTarget) => lotteryTarget.object_info.redeem_end_datetime === nowDate.format('yyyy/mm/dd 23:59:59'),
@@ -43,6 +44,7 @@ async function getLotteryStatus(req, res) {
     lotteryList.push(lotteryNotExpire[i].object_info.title);
   }
   await res.status(200);
+  await res.set('Content-Type', 'application/json');
   await res.json({
     lottery: lotteryList,
     totalStickersAmount: stickerListResp.body.results.stickers.length,
