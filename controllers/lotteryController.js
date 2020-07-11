@@ -10,6 +10,15 @@ async function getLottery(req, res) {
   const getLotteryListResp = await lottery.getLotteryList(req.body.accessToken);
   console.log(JSON.stringify(getLotteryListResp.body.results.coupons));
   const stickerListResp = await lottery.getStickerList(req.body.accessToken);
+  if (getLotteryListResp.body.rc !== 1 && stickerListResp.body.rc !== 1) {
+    console.log(JSON.stringify(getLotteryListResp.body));
+    console.log(JSON.stringify(stickerListResp.body));
+    await res.status(400);
+    await res.json({
+      errorMessage: 'sticker or lottery have some problem ...',
+    });
+    return;
+  }
   const lotteryToday = await getLotteryListResp.body.results.coupons.filter(
     (lotteryTarget) => lotteryTarget.object_info.redeem_end_datetime === nowDate.format('{YYYY}/{MM}/{DD} 23:59:59'),
   );
@@ -35,6 +44,7 @@ async function getLotteryStatus(req, res) {
   const lotteryList = [];
   const getLotteryListResp = await lottery.getLotteryList(req.body.accessToken);
   const stickerListResp = await lottery.getStickerList(req.body.accessToken);
+  console.log(JSON.stringify(getLotteryListResp.body.results.coupons));
   if (getLotteryListResp.body.rc !== 1 && stickerListResp.body.rc !== 1) {
     await res.status(400);
     await res.json({
@@ -42,7 +52,7 @@ async function getLotteryStatus(req, res) {
     });
     return;
   }
-  const lotteryNotExpire = await getLotteryListResp.body.results.coupons.filter((lotteryTarget) => lotteryTarget.object_info.redeem_end_datetime > new Date().format('{YYYY}/{MM}/{DD} HH:MM:ss'));
+  const lotteryNotExpire = await getLotteryListResp.body.results.coupons.filter((lotteryTarget) => lotteryTarget.object_info.redeem_end_datetime > new Date().format('{YYYY}/{MM}/{DD} 00:00:00'));
   for (let i = 0; i < lotteryNotExpire.length; i += 1) {
     lotteryList.push(lotteryNotExpire[i].object_info.title);
   }
