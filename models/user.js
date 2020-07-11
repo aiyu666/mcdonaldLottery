@@ -2,9 +2,8 @@ require('date.format');
 const md5 = require('md5');
 const request = require('./request');
 
-
 async function getToken(userAccount, userPassword) {
-  const deviceTime = new Date().format('yyyy/mm/dd HH:MM:ss');
+  const deviceTime = new Date().format('{YYYY}/{MM}/{DD} HH:MM:ss');
   const appVersion = process.env.APP_VERSION;
   const callTime = new Date().format('yyyymmddHHMMss');
   const paramString = `${userAccount}${userPassword}`;
