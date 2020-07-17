@@ -3,9 +3,9 @@ const md5 = require('md5');
 const request = require('./request');
 
 async function getToken(userAccount, userPassword) {
-  const deviceTime = new Date().format('{YYYY}/{MM}/{DD} HH:MM:ss');
+  const deviceTime = new Date().format('{YYYY}/{MM}/{DD} {hh}:{mm}:{ss}');
   const appVersion = process.env.APP_VERSION;
-  const callTime = new Date().format('yyyymmddHHMMss');
+  const callTime = new Date().format('{YYYY}{MM}{DD}{hh}{mm}{ss}');
   const paramString = `${userAccount}${userPassword}`;
   const modelId = process.env.MODEL_ID;
   const osVersion = process.env.OS_VERSION;
@@ -27,6 +27,7 @@ async function getToken(userAccount, userPassword) {
       Platform: process.env.PLATFORM,
     },
   };
+  console.log(JSON.stringify(parm));
   const option = {
     url: 'https://api.mcddaily.com.tw/login_by_mobile',
     json: parm,
