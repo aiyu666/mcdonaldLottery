@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "forever start -w ./bin/www",
-    "test": "jest --coverage",
-    "list": "forever list"
+    "start": "node ./bin/www",
+    "test": "jest --coverage"
   },
   "dependencies": {
     "aes-js": "^3.1.2",
@@ -14,7 +13,6 @@
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "express": "~4.16.1",
-    "forever": "^3.0.0",
     "http-errors": "~1.6.3",
     "md5": "^2.2.1",
     "morgan": "~1.9.1",
