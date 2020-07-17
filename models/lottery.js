@@ -2,7 +2,7 @@ const request = require('./request');
 require('dotenv').config();
 require('date.format');
 
-const deviceTime = new Date().format('{YYYY}/{MM}/{DD} HH:MM:ss');
+const deviceTime = new Date().format('{YYYY}/{MM}/{DD} {hh}:{mm}:{ss}');
 
 const source = {
   app_version: process.env.APP_VERSION,
@@ -35,6 +35,7 @@ async function getLotteryList(accessToken, sourceInfo = source) {
       source_info: sourceInfo,
     },
   };
+  console.log(sourceInfo);
   const response = await request.postRequest(option);
   return response;
 }
