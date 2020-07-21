@@ -42,8 +42,8 @@ async function getLottery(req, res) {
 
 async function getLotteryStatus(req, res) {
   const lotteryList = [];
-  const getLotteryListResp = await lottery.getLotteryList(req.body.accessToken);
-  const stickerListResp = await lottery.getStickerList(req.body.accessToken);
+  const getLotteryListResp = await lottery.getLotteryList(req.query.accessToken);
+  const stickerListResp = await lottery.getStickerList(req.query.accessToken);
   console.log(JSON.stringify(getLotteryListResp.body.results.coupons));
   if (getLotteryListResp.body.rc !== 1 && stickerListResp.body.rc !== 1) {
     await res.status(400);

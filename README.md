@@ -40,9 +40,5 @@ curl --request POST \
 Get the lottery list and stickers witch the date is not expired. 
 ```
 curl --request GET \
-  --url http://localhost:5000/api/lottery \
-  --header 'content-type: application/json' \
-  --data '{
- "accessToken": "<token>"
-}'
+  --url 'http://localhost:5000/api/lottery?accessToken=<token>'
 ```
