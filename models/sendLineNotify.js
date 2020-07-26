@@ -1,5 +1,4 @@
 const { postRequest } = require('./request');
-require('dotenv').config();
 
 module.exports = async (messageContent, lineNotifiyToken) => {
   const options = {
