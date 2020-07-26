@@ -1,8 +1,7 @@
 const subscription = require('../models/subscription.js');
 
 module.exports = async (req, res) => {
-  const requestBody = JSON.parse(req.body);
-  const resp = await subscription(requestBody.accessToken, requestBody.cronFromat);
+  const resp = await subscription(req.body.accessToken, req.body.cronFromat);
   res.status(200);
   await res.json({
     name: resp.name,
