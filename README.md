@@ -32,7 +32,7 @@ curl --request POST \
   --url localhost:5000/api/lottery \
   --header 'content-type: application/json' \
   --data '{
- "accessToken": "<token>"
+ "accessToken": "<mcdonaldToken>"
 }'
 ```
 
@@ -40,5 +40,18 @@ curl --request POST \
 Get the lottery list and stickers witch the date is not expired. 
 ```
 curl --request GET \
-  --url 'http://localhost:5000/api/lottery?accessToken=<token>'
+  --url 'http://localhost:5000/api/lottery?accessToken=<mcdonaldToken>'
+```
+
+#### Auto get lottery 
+Get the lottery daily , cronFormat default is UTF
+```
+curl --request POST \
+  --url http://localhost:5000/api/subscription \
+  --header 'content-type: application/json' \
+  --data '{
+	"accessToken": "<mcdonaldToken>",
+	"lineNotifiyToken": "<yourLineNotifiyToken>",
+	"cronFormat": "<cronFormat>"
+}'
 ```
