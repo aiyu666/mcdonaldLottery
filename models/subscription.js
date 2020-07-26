@@ -4,13 +4,12 @@ const { getLottery } = require('./lottery');
 require('dotenv').config();
 
 
-module.exports = (accessToken, cronFormat = process.env.CRON_FORMAT) => {
-  const resp = scheduleJob(cronFormat, async (val) => {
-    console.log(val);
+module.exports = (accessToken, lineNotifiyToken, cronFormat = process.env.CRON_FORMAT) => {
+  const resp = scheduleJob(cronFormat, async () => {
     const getLotteryResp = await getLottery(accessToken);
-    if (getLotteryResp.statusCode !== 200) return sendLineNotify(`領取失敗,因為 statusCode 拿到 ${getLotteryResp.statusCode}`);
-    if (getLotteryResp.body.rc !== 1) return sendLineNotify('領取失敗');
-    return sendLineNotify(`\n${getLotteryResp.body.results.coupon.object_info.title}`);
+    if (getLotteryResp.statusCode !== 200) return sendLineNotify(`領取失敗，因為 statusCode 拿到 ${getLotteryResp.statusCode}`, lineNotifiyToken);
+    if (getLotteryResp.body.rc !== 1) return sendLineNotify(`領取失敗，因為麥當勞報報 API RC 拿到 ${getLotteryResp.body.rc}`, lineNotifiyToken);
+    return sendLineNotify(`\n${getLotteryResp.body.results.coupon.object_info.title}`, lineNotifiyToken);
   });
   return resp;
 };
