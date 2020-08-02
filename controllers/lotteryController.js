@@ -34,8 +34,11 @@ async function getLottery(req, res) {
     return;
   }
   res.status(getLotteryResp.statusCode);
+  const lotteryInfo = (getLotteryResp.body.results.coupon.object_info.title)
+    ? getLotteryResp.body.results.coupon.object_info.title
+    : '歡樂貼';
   res.json({
-    lottery: getLotteryResp.body.results.coupon.object_info.title,
+    lottery: lotteryInfo,
     todayLottery: todayGet,
   });
 }
