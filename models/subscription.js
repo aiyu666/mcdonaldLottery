@@ -9,7 +9,8 @@ module.exports = (accessToken, lineNotifiyToken, cronFormat = process.env.CRON_F
     const getLotteryResp = await getLottery(accessToken);
     if (getLotteryResp.statusCode !== 200) return sendLineNotify(`領取失敗，因為 statusCode 拿到 ${getLotteryResp.statusCode}`, lineNotifiyToken);
     if (getLotteryResp.body.rc !== 1) return sendLineNotify(`領取失敗，因為麥當勞報報 API RC 拿到 ${getLotteryResp.body.rc}`, lineNotifiyToken);
-    return sendLineNotify(`\n${getLotteryResp.body.results.coupon.object_info.title}`, lineNotifiyToken);
+    if (getLotteryResp.body.results.coupon.object_info.title) return sendLineNotify(`\n${getLotteryResp.body.results.coupon.object_info.title}`);
+    return sendLineNotify('\n 歡樂貼');
   });
   return resp;
 };
