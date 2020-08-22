@@ -1,4 +1,4 @@
-const user = require('../models/user.js');
+const user = require('../module/user.js');
 
 module.exports = async (req, res) => {
   const resp = await user.getToken(req.body.account, req.body.password);

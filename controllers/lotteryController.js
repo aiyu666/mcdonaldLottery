@@ -1,4 +1,4 @@
-const lottery = require('../models/lottery');
+const lottery = require('../module/lottery');
 require('date.format');
 
 

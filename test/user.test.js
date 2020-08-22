@@ -4,7 +4,7 @@ const userSchema = require('./schema/user.json');
 
 const ajv = new Ajv();
 
-const user = require('../models/user');
+const user = require('../module/user');
 
 describe('Lottery integration test', () => {
   test('Can get user token', async () => {

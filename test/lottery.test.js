@@ -4,7 +4,7 @@ const lotterySchema = require('./schema/lottery.json');
 
 const ajv = new Ajv();
 
-const lottery = require('../models/lottery');
+const lottery = require('../module/lottery');
 
 describe('Lottery integration test', () => {
   test('Can get lottery', async () => {
