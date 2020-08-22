@@ -27,7 +27,6 @@ async function getToken(userAccount, userPassword) {
       Platform: process.env.PLATFORM,
     },
   };
-  console.log(JSON.stringify(parm));
   const option = {
     url: 'https://api.mcddaily.com.tw/login_by_mobile',
     json: parm,

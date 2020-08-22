@@ -5,14 +5,10 @@ require('date.format');
 async function getLottery(req, res) {
   const nowDate = new Date();
   nowDate.setDate(nowDate.getDate() + 2); // The lottery expire at the day after tomorrow.
-  console.log(nowDate.format('{YYYY}/{MM}/{DD} 23:59:59'));
   const getLotteryResp = await lottery.getLottery(req.body.accessToken);
   const getLotteryListResp = await lottery.getLotteryList(req.body.accessToken);
-  console.log(JSON.stringify(getLotteryListResp.body.results.coupons));
   const stickerListResp = await lottery.getStickerList(req.body.accessToken);
   if (getLotteryListResp.body.rc !== 1 && stickerListResp.body.rc !== 1) {
-    console.log(JSON.stringify(getLotteryListResp.body));
-    console.log(JSON.stringify(stickerListResp.body));
     await res.status(400);
     await res.json({
       errorMessage: 'sticker or lottery have some problem ...',
@@ -47,7 +43,6 @@ async function getLotteryStatus(req, res) {
   const lotteryList = [];
   const getLotteryListResp = await lottery.getLotteryList(req.query.accessToken);
   const stickerListResp = await lottery.getStickerList(req.query.accessToken);
-  console.log(JSON.stringify(getLotteryListResp.body.results.coupons));
   if (getLotteryListResp.body.rc !== 1 && stickerListResp.body.rc !== 1) {
     await res.status(400);
     await res.json({

@@ -35,7 +35,6 @@ async function getLotteryList(accessToken, sourceInfo = source) {
       source_info: sourceInfo,
     },
   };
-  console.log(sourceInfo);
   const response = await request.postRequest(option);
   return response;
 }
