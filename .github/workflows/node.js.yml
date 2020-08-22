@@ -27,3 +27,15 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+      env:
+        ACCESS_TOKEN:${{secrets.ACCESS_TOKEN}}
+        APP_VERSION:${{secrets.APP_VERSION}}
+        CRON_FORMAT:${{secrets.CRON_FORMAT}}
+        DEVICE_UUID:${{secrets.DEVICE_UUID}}
+        LINE_NOTIFY_TOKEN:${{secrets.LINE_NOTIFY_TOKEN}}
+        MC_HOST:${{secrets.MC_HOST}}
+        MODEL_ID:${{secrets.MODEL_ID}}
+        OS_VERSION:${{secrets.OS_VERSION}}
+        PLATFORM:${{secrets.PLATFORM}}
+        USER_ACCOUNT:${{secrets.USER_ACCOUNT}}
+        USER_PASSWORD:${{secrets.USER_PASSWORD}}
