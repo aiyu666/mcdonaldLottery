@@ -32,7 +32,7 @@ jobs:
         APP_VERSION: ${{secrets.APP_VERSION}}
         CRON_FORMAT: ${{secrets.CRON_FORMAT}}
         DEVICE_UUID: ${{secrets.DEVICE_UUID}}
-        LINE_NOTIFY_TOKEN: ${{secrets.LINE_NOTIFY_TOKEN}}
+        LINE_NOTIFY_TOKEN: "123"
         MC_HOST: ${{secrets.MC_HOST}}
         MODEL_ID: ${{secrets.MODEL_ID}}
         OS_VERSION: ${{secrets.OS_VERSION}}
