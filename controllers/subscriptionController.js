@@ -1,4 +1,4 @@
-const subscription = require('../models/subscription.js');
+const subscription = require('../module/subscription.js');
 
 module.exports = async (req, res) => {
   const resp = await subscription(

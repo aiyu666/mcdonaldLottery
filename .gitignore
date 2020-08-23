@@ -1,4 +1,5 @@
 node_modules
+html-report
 .env
 coverage
 err.log

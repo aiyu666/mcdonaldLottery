@@ -28,6 +28,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.17.1",
     "jest": "^26.1.0",
+    "jest-html-reporters": "^2.0.3",
     "nodemon": "^2.0.4"
   }
 }
