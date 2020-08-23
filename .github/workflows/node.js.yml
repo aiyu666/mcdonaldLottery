@@ -27,6 +27,8 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+      with:
+        args: --acl public-read --follow-symlinks
       env:
         ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
         APP_VERSION: ${{secrets.APP_VERSION}}
